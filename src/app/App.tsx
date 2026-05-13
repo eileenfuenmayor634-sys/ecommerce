@@ -1,9 +1,28 @@
 import { motion } from "motion/react";
 import { ShoppingCart, Search, User, Menu, Star, Truck, Shield, CreditCard, Heart, X, ChevronDown, Bell, Gift } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 
+function AnnouncementCarousel({ items }: { items: string[] }) {
+  // Infinite marquee sin librerías.
+  const marquee = items.join(" • ");
+
+  return (
+    <div className="min-w-0 flex-1 px-2">
+      <div className="relative overflow-hidden">
+        <div className="whitespace-nowrap" style={{ animation: "marquee 12s linear infinite" }}>
+          <span className="inline-block">{marquee} • </span>
+          <span className="inline-block">{marquee} • </span>
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
+
 export default function App() {
+
   const [cartCount, setCartCount] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Todo");
@@ -155,16 +174,27 @@ export default function App() {
 
   return (
     <div className="size-full overflow-auto bg-white">
-      {/* Top Banner */}
-      <div className="bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 text-white text-center py-2 text-sm font-medium">
-        <div className="flex items-center justify-center gap-1">
-          <Gift className="w-4 h-4" />
-          <span>¡MEGA OFERTA! Hasta 80% OFF + Envío Gratis en compras +$50</span>
-          <Gift className="w-4 h-4" />
+      {/* Announcement Bar */}
+      <div className="bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 text-white text-center py-2 text-sm font-medium overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center gap-2">
+            <Gift className="w-4 h-4 flex-shrink-0" />
+
+            {/* simple carousel (sin librerías): cambia cada 3s */}
+            <AnnouncementCarousel
+              items={[
+                "¡MEGA OFERTA! Hasta 80% OFF + Envío Gratis en compras +$50",
+                "Descuento de Temporada: 20% OFF en tu próxima compra",
+                "Envio Gratis desde $39.99 (solo hoy)"
+              ]}
+            />
+
+
+            <Gift className="w-4 h-4 flex-shrink-0" />
+          </div>
         </div>
-
-
       </div>
+
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
