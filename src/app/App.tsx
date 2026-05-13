@@ -157,11 +157,12 @@ export default function App() {
     <div className="size-full overflow-auto bg-white">
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 text-white text-center py-2 text-sm font-medium">
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-1">
           <Gift className="w-4 h-4" />
           <span>¡MEGA OFERTA! Hasta 80% OFF + Envío Gratis en compras +$50</span>
           <Gift className="w-4 h-4" />
         </div>
+
 
       </div>
 
