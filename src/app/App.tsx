@@ -191,18 +191,19 @@ export default function App() {
             {/* Right Icons */}
             <div className="flex items-center gap-3">
               <motion.button
-                className="hidden md:flex items-center gap-1 text-slate-700 hover:text-pink-500 transition-colors"
+                className="flex md:flex items-center gap-1 text-slate-700 hover:text-pink-500 transition-colors"
                 whileHover={{ scale: 1.05 }}
               >
                 <Bell className="w-5 h-5" />
               </motion.button>
               <motion.button
-                className="hidden md:flex items-center gap-1 text-slate-700 hover:text-pink-500 transition-colors"
+                className="flex md:flex items-center gap-1 text-slate-700 hover:text-pink-500 transition-colors"
                 whileHover={{ scale: 1.05 }}
               >
                 <User className="w-5 h-5" />
-                <span className="text-sm">Cuenta</span>
+                <span className="text-sm hidden sm:inline">Cuenta</span>
               </motion.button>
+
               <motion.button
                 className="relative flex items-center gap-1 text-slate-700 hover:text-pink-500 transition-colors"
                 whileHover={{ scale: 1.05 }}
